@@ -1,51 +1,116 @@
-Pregunta: 
-¿Por qué usar double y no int para el precio?
-Porque en Java el tipo de dato int, solo permite asignarle valor númerico enteros, es decir sin punto ni coma, mientras el double si permite asignar decimales.
+# ☕ Sistema de Cafetería — Java
 
-¿Que pasa si se declara el precio como int yse le asigna 3.50?
-Java inmediatamente me dice que el tipo de dato int no es para almacenar numeros con decimales.
+> Proyecto de consola desarrollado en **Java** para practicar los fundamentos de programación mediante la simulación del procesamiento de pedidos de una cafetería.
 
-Pregunta: 
-¿Qué operador use para determinar si aplica el descuento?
-Dentro del if use el operador mayor que (>).
-¿Qué tipo de dato devuelve ese operador?
-Devuelve un tipo de dato boolean.
+![Java](https://img.shields.io/badge/Java-Programación-orange?logo=openjdk)
+![Estado](https://img.shields.io/badge/Estado-Proyecto%20académico-blue)
 
-Pregunta: 
-¿En qué situación prefieres usar switch en lugar de una cadena de if-else?
-Cuando se tienen demasiadas comparaciones.
+---
 
-¿Hay algún caso en este ejercicio donde el switch no seria necesario?
-Si, si máximo son 4 categorias, podriamos hacer uso del if-else, sin embargo si hay más categorias, más operaciones, en ese caso si es preferible usar switch.
+## 📌 Sobre el proyecto
 
-Pregunta. 
-¿Qué ocurre si la condición del while nunca se vuelve falsa?
-El cilco se vuelve infinito.
+**Sistema de Cafetería** reúne ejercicios de introducción a Java y una clase principal (`Cafeteria.java`) que integra variables, arreglos, operadores, condicionales y ciclos. Los pedidos y productos están definidos directamente en el código; la aplicación muestra sus resultados en la consola.
 
-¿Cómo lo prevendrías en este caso?
-Dándole un límite al bucle, mientras una condición se cumpla
+## ✨ Características principales
 
-Pregunta: 
-¿Por qué do-while es más apropiado que while aquí? Por que, primero vaida que exista un monto y luego ejecuta la condición.
+- Catálogo de cinco productos con nombre, precio y categoría.
+- Clasificación de productos mediante `switch`: bebida caliente (`B`), bebida fría (`F`), comida (`C`) y postre (`P`).
+- Procesamiento de pedidos con arreglos y un ciclo `for`.
+- Comprobación del inventario de brownies antes de procesar su venta.
+- Descuento del **10 %** cuando el subtotal de un pedido supera **$12.000**.
+- Validación del monto de apertura mediante `do-while` (con valor establecido en el código).
+- Resumen de pedidos procesados, total recaudado y pedido de mayor valor.
 
-Describe con tus palabras la diferencia en
-el orden de ejecución:
+> **Nota:** es una simulación con datos precargados, no un sistema con interfaz gráfica, base de datos ni captura interactiva de pedidos.
 
-Do while = primero valida que la información exista, luego pregunta y ejecuta.
+## 🧰 Tecnologías y conceptos
 
-While = primero pregunta, luego valida y ejecuta
+- **Lenguaje:** Java.
+- **Ejecución:** consola.
+- **Conceptos:** tipos de datos, constantes, operadores, `if/else`, `switch`, `while`, `do-while`, `for`, arreglos y depuración.
+- **Entorno:** el proyecto incluye archivos de configuración de IntelliJ IDEA (`.idea/` y `.iml`), aunque puede compilarse desde la terminal con un JDK compatible.
 
-Pregunta: 
-¿Por qué usas for aquí y no while? por que el ciclo for es ideal para recorrer posiciones de un array.
+## 📁 Estructura del proyecto
 
-¿Qué tiene el for que lo hace más conveniente cuando conoces el número de elementos? Su estructura de declaración
+```text
+JAVA-CAFETERIA/
+├── README.md
+├── .gitignore
+├── Sistema_Cafeteria.iml
+└── src/
+    ├── Cafeteria.java
+    ├── variablestipodatos.java
+    ├── operadores.java
+    ├── suitch.java
+    ├── ciclowhile.java
+    ├── ciclodowhile.java
+    ├── foryarrays.java
+    └── debugging.java
+```
 
-Pregunta:
-¿Cuántos errores encontraste? 
-Encontre 3
+### ¿Qué hace cada clase?
 
-Clasifica cada uno: ¿es un error de compilación o un error
-lógico? 2 de compilación y 1 de lógica;
+| Archivo | Contenido |
+|---|---|
+| `Cafeteria.java` | Integra catálogo, pedidos, inventario, descuentos y resumen de ventas. |
+| `variablestipodatos.java` | Declara e imprime distintos tipos de datos. |
+| `operadores.java` | Calcula un descuento condicional del 15 % en un ejercicio independiente. |
+| `suitch.java` | Clasifica categorías de productos y muestra porcentajes de IVA como ejemplo. |
+| `ciclowhile.java` | Simula la disminución de inventario con `while`. |
+| `ciclodowhile.java` | Ejemplifica la validación de un monto de apertura. |
+| `foryarrays.java` | Recorre productos y calcula el precio promedio. |
+| `debugging.java` | Contiene un ejemplo de corrección de errores y cálculo de descuento. |
 
-¿Cómo los distingues? Los errores de compilación los detecta el IDE antes de ejecutar/compilar el código, es decir los marca con una pequeña linea roja.
-El lógico no genera un error que el IDE pueda detectar, para él esta escrito correctamente.
+## 🖥️ Ejecutar el proyecto localmente
+
+**Requisito:** tener instalado un JDK compatible con el método `main` sin modificador de acceso usado en estas clases (por ejemplo, JDK 25).
+
+### 1. Obtener el proyecto
+
+Descarga o descomprime el proyecto y abre una terminal en su carpeta raíz (`JAVA-CAFETERIA`).
+
+### 2. Compilar la clase principal
+
+```bash
+javac -d out src/Cafeteria.java
+```
+
+Este comando genera el archivo compilado dentro de la carpeta `out`.
+
+### 3. Ejecutar la simulación
+
+```bash
+java -cp out Cafeteria
+```
+
+Para ejecutar otro ejercicio, sustituye `Cafeteria` por el nombre exacto de su clase y compila antes el archivo correspondiente. También puedes abrir el proyecto en IntelliJ IDEA, configurar el JDK y ejecutar la clase deseada.
+
+## 🔎 Funcionamiento de la simulación
+
+La clase principal define un catálogo y seis registros de pedido en dos arreglos paralelos: uno indica el producto y el otro su cantidad. Para cada registro, el programa muestra la categoría, comprueba las existencias si se trata de brownies, calcula el subtotal y aplica el descuento cuando corresponde. Finalmente imprime el total de pedidos atendidos, la recaudación y el número del pedido de mayor valor.
+
+**Datos configurables:** puedes cambiar los productos, precios, categorías, pedidos, cantidades, inventario inicial y monto de apertura directamente en `src/Cafeteria.java`. Si modificas los pedidos, mantén alineados los arreglos `pedidoProducto` y `pedidoCantidad` y utiliza índices válidos del catálogo.
+
+## 🚀 Posibles mejoras
+
+- Permitir ingresar pedidos desde el teclado.
+- Validar los índices de productos y las cantidades solicitadas.
+- Administrar el inventario de todos los productos.
+- Separar la lógica en métodos o clases para facilitar su mantenimiento.
+- Incorporar pruebas automáticas.
+
+## 👨‍💻 Autor
+
+**Sneyder Rodríguez** — Desarrollo Full-Stack Java.
+
+- [GitHub](https://github.com/SneyderRodriguez)
+- [LinkedIn](https://www.linkedin.com/in/sneyder-rodriguez-ingeniero-de-sistemas/)
+- [Portafolio](https://sneyderrodriguez.netlify.app/)
+
+---
+
+## 📄 Licencia
+
+Este proyecto está disponible bajo la licencia **MIT**.
+
+Puedes utilizar, modificar y distribuir el código respetando los términos establecidos en dicha licencia.
